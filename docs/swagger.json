@@ -1,0 +1,13 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Take_Out项目API文档",
+        "title": "Take_Out",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "8.136.113.100：5002",
+    "basePath": "api/v1",
+    "paths": {}
+}

@@ -1,0 +1,10 @@
+basePath: api/v1
+host: 8.136.113.100：5002
+info:
+  contact: {}
+  description: Take_Out项目API文档
+  termsOfService: http://swagger.io/terms/
+  title: Take_Out
+  version: "1.0"
+paths: {}
+swagger: "2.0"

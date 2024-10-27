@@ -1,0 +1,43 @@
+system:
+  domain: take_out
+  version: 1.0
+  env: "dev"
+  HttpPort: ":5002"
+  Host: "8.136.113.100"
+  #Host: "127.0.0.1"
+  UploadModel: "local"
+
+mysql:
+    dialect: "mysql"
+    dbHost: "8.136.113.100"
+    #dbHost: "127.0.0.1"
+    dbPort: "3306"
+    dbName: "take_out"
+    userName: "take_out"
+    #dbName: "take_out_tmp"
+    #userName: "root"
+    password: "abc123"
+    charset: "utf8mb4"
+
+redis:
+  redisDbName: 4
+  redisHost: 127.0.0.1
+  redisPort: 6379
+  redisPassword: 123456
+  redisNetwork: "tcp"
+
+email:
+  ValidEmail: http://8.136.113.100:5002/
+  #ValidEmail: http://127.0.0.1:5002/
+  SmtpHost: "smtp.qq.com"
+  SmtpEmail: "2098128799@qq.com"
+  SmtpPass: "eufkdzjfgigvbahd"
+
+encryptSecret:
+  jwtSecret: "FanOne666Secret"
+  emailSecret: "EmailSecret"
+  phoneSecret: "PhoneSecret"
+
+path:
+  photoHost: "http://8.136.113.100"
+  avatarPath: "/static/imgs/avatar/"
