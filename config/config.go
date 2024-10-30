@@ -38,9 +38,8 @@ type MySql struct {
 }
 
 type Redis struct {
-	RedisHost string `yaml:"redisHost"`
-	RedisPort string `yaml:"redisPort"`
-	//RedisUsername string `yaml:"redisUsername"`
+	RedisHost     string `yaml:"redisHost"`
+	RedisPort     string `yaml:"redisPort"`
 	RedisPassword string `yaml:"redisPassword"`
 	RedisDbName   int    `yaml:"redisDbName"`
 	RedisNetwork  string `yaml:"redisNetwork"`

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Take_Out/cache"
 	"Take_Out/config"
 	"Take_Out/router"
 	"context"
@@ -21,6 +22,7 @@ func main() {
 		fmt.Printf("config.Init failed, err: %v\n", err)
 		return
 	}
+	cache.InitRedis()
 	r := router.NewRouter()
 	_ = r.Run(config.Config.System.HttpPort)
 

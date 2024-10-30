@@ -27,6 +27,11 @@ func NewRouter() *gin.Engine {
 		// 用户操作
 		v1.POST("user/register", api.UserRegister)
 		v1.POST("user/login", api.UserLogin)
+		// 发送验证码
+		v1.POST("user/send-code", api.SendCheckCode)
+		// 忘记密码
+		v1.PUT("user/findPwd", api.FindPwd)
+
 		// 轮播图
 		//v1.GET("carousels", api.ListCarousel)
 
@@ -37,10 +42,6 @@ func NewRouter() *gin.Engine {
 			auth.PUT("user", api.UserUpdate)
 			// 上传头像
 			auth.POST("avatar", api.UploadAvatar)
-			// 发送邮件
-			auth.POST("user/sending-email", api.SendEmail)
-			// 验证邮箱
-			auth.POST("/user/valid-email", api.ValidEmail)
 		}
 	}
 

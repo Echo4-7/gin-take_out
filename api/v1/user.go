@@ -8,7 +8,6 @@ import (
 )
 
 // UserRegister 用户注册接口
-
 func UserRegister(c *gin.Context) {
 	var userRegister service.UserService
 	if err := c.ShouldBind(&userRegister); err == nil {
@@ -55,23 +54,24 @@ func UploadAvatar(c *gin.Context) {
 	}
 }
 
-// SendEmail 发送邮件
-func SendEmail(c *gin.Context) {
-	var sendEmail service.UserService
-	claim, _ := util.ParseToken(c.GetHeader("Authorization"))
-	if err := c.ShouldBind(&sendEmail); err == nil {
-		res := sendEmail.Send(c.Request.Context(), claim.ID)
-		c.JSON(http.StatusOK, res)
-	} else {
-		c.JSON(http.StatusBadRequest, err)
+// SendCheckCode 发送验证码
+func SendCheckCode(c *gin.Context) {
+	var userSendCheckCode service.UserService
+	email := c.Query("email")
+	if email == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "邮箱不能为空！"})
+		return
 	}
+	res := userSendCheckCode.SendCheckCode(c.Request.Context(), email)
+	c.JSON(http.StatusOK, res)
+
 }
 
-// ValidEmail 验证邮箱
-func ValidEmail(c *gin.Context) {
-	var validEmail service.UserService
-	if err := c.ShouldBind(&validEmail); err == nil {
-		res := validEmail.Valid(c.Request.Context(), c.GetHeader("Authorization"))
+// FindPwd 找回密码
+func FindPwd(c *gin.Context) {
+	var userFindPwd service.FindPwdService
+	if err := c.ShouldBind(&userFindPwd); err == nil {
+		res := userFindPwd.FindPwd(c.Request.Context())
 		c.JSON(http.StatusOK, res)
 	} else {
 		c.JSON(http.StatusBadRequest, err)
